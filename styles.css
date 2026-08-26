@@ -16,13 +16,13 @@
 html{scroll-behavior:smooth;}
 body{
   margin:0;
-  font-family:'Inter',Arial,sans-serif;
+  font-family:'Inter','Noto Sans SC','Noto Sans TC',Arial,sans-serif;
   color:var(--ink);
   background:var(--stone);
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15;margin:0;color:var(--ink);}
+h1,h2,h3{font-family:'Fraunces','Noto Serif SC','Noto Serif TC',Georgia,serif;font-weight:600;line-height:1.15;margin:0;color:var(--ink);}
 p{margin:0;color:var(--ink-soft);}
 a{color:inherit;}
 img,svg{display:block;max-width:100%;}
@@ -58,13 +58,32 @@ header::before{
 }
 .nav-row{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
 .brand{display:flex;flex-direction:column;text-decoration:none;}
-.brand-name{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;letter-spacing:0.01em;}
+.brand-name{font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-size:1.15rem;font-weight:600;letter-spacing:0.01em;}
 .brand-tag{font-size:0.72rem;font-style:italic;color:var(--sage-deep);letter-spacing:0.03em;}
 nav.nav-links{display:flex;align-items:center;gap:1.6rem;font-size:0.93rem;font-weight:500;}
 nav.nav-links > a:not(.btn){text-decoration:none;color:var(--ink);}
 nav.nav-links > a:not(.btn):hover{color:var(--cinnabar);}
 .nav-cta{white-space:nowrap;}
 .nav-toggle,.hamburger{display:none;}
+
+/* LANGUAGE SWITCHER — a floating pill toggle, independent of the nav row
+   and the mobile menu so it never competes with them for space. Visually
+   distinct from .btn/.link-arrow on purpose (segmented control, not a link). */
+.lang-switch{
+  position:fixed;bottom:20px;right:20px;z-index:60;
+  display:flex;align-items:center;gap:1px;
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:3px;box-shadow:0 8px 20px -10px rgba(31,42,36,0.35);
+}
+.lang-switch a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;padding:6px 10px;border-radius:999px;
+  font-size:0.76rem;font-weight:700;letter-spacing:0.02em;
+  color:var(--ink-soft);text-decoration:none;
+  transition:background-color .15s ease, color .15s ease;
+}
+.lang-switch a.active{background:var(--ink);color:#fff;}
+.lang-switch a:not(.active):hover{color:var(--cinnabar);}
 
 /* HERO (homepage) */
 .hero{position:relative;overflow:hidden;padding:72px 0 60px;}
@@ -142,7 +161,7 @@ nav.nav-links > a:not(.btn):hover{color:var(--cinnabar);}
 .portrait-caption{position:absolute;bottom:14px;left:14px;right:14px;font-size:0.72rem;color:var(--ink-soft);background:rgba(248,245,238,0.85);padding:6px 10px;border-radius:8px;}
 .quote{
   border-left:3px solid var(--cinnabar);padding-left:18px;margin:22px 0;
-  font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--ink);
+  font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-style:italic;font-size:1.1rem;color:var(--ink);
 }
 .credentials{display:flex;gap:20px;margin:20px 0;flex-wrap:wrap;}
 .credential{font-size:0.85rem;color:var(--ink-soft);display:flex;align-items:center;gap:8px;}
@@ -153,7 +172,7 @@ nav.nav-links > a:not(.btn):hover{color:var(--cinnabar);}
   display:flex;align-items:center;justify-content:center;gap:18px;
   background:var(--sage-wash);border-radius:20px;padding:28px;text-align:center;flex-wrap:wrap;
 }
-.hicaps strong{font-family:'Fraunces',serif;font-size:1.15rem;}
+.hicaps strong{font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-size:1.15rem;}
 
 /* PROSE (content pages: acupuncture, herbal, introduction, evidence) */
 .prose{max-width:760px;}
@@ -169,19 +188,19 @@ nav.nav-links > a:not(.btn):hover{color:var(--cinnabar);}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
 .stat-row{display:flex;gap:36px;flex-wrap:wrap;margin:28px 0;}
 .stat{min-width:140px;}
-.stat strong{display:block;font-family:'Fraunces',serif;font-size:2rem;color:var(--cinnabar);}
+.stat strong{display:block;font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-size:2rem;color:var(--cinnabar);}
 .stat span{font-size:0.85rem;color:var(--ink-soft);}
 .side-note{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
   padding:24px;font-size:0.92rem;color:var(--ink-soft);align-self:start;
 }
-.side-note h4{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--ink);margin-bottom:10px;}
+.side-note h4{font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-size:1.05rem;color:var(--ink);margin-bottom:10px;}
 .steps{counter-reset:step;display:flex;flex-direction:column;gap:20px;margin:24px 0;}
 .step{display:flex;gap:18px;align-items:flex-start;}
 .step-num{
   counter-increment:step;flex-shrink:0;width:34px;height:34px;border-radius:50%;
   background:var(--ink);color:var(--stone);display:flex;align-items:center;justify-content:center;
-  font-family:'Fraunces',serif;font-size:0.95rem;
+  font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-size:0.95rem;
 }
 .step-num::before{content:counter(step);}
 
@@ -199,7 +218,7 @@ nav.nav-links > a:not(.btn):hover{color:var(--cinnabar);}
   padding:4px 22px;
 }
 .faq-item summary{
-  cursor:pointer;padding:18px 0;font-weight:600;font-family:'Fraunces',serif;font-size:1.05rem;
+  cursor:pointer;padding:18px 0;font-weight:600;font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;font-size:1.05rem;
   list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
 }
 .faq-item summary::-webkit-details-marker{display:none;}
@@ -249,7 +268,7 @@ footer{background:var(--ink);color:#CBD3CD;padding:48px 0 28px;}
 .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:24px;}
 .footer-grid a{color:#CBD3CD;text-decoration:none;font-size:0.9rem;}
 .footer-grid a:hover{color:#fff;}
-.footer-brand{font-family:'Fraunces',serif;color:#fff;font-size:1.05rem;}
+.footer-brand{font-family:'Fraunces','Noto Serif SC','Noto Serif TC',serif;color:#fff;font-size:1.05rem;}
 .footer-links{display:flex;gap:22px;flex-wrap:wrap;}
 .copyright{font-size:0.78rem;color:#8A9690;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;}
 
