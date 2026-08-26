@@ -46,9 +46,15 @@ img,svg{display:block;max-width:100%;}
 /* HEADER */
 header{
   position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);
+}
+/* Frosted background lives on a pseudo-element rather than header itself —
+   backdrop-filter on header would create a containing block for the fixed
+   mobile nav panel, trapping it inside header's own (short) height. */
+header::before{
+  content:"";position:absolute;inset:0;z-index:-1;
   background:rgba(237,232,221,0.9);
   backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
 }
 .nav-row{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
 .brand{display:flex;flex-direction:column;text-decoration:none;}
@@ -255,8 +261,9 @@ footer{background:var(--ink);color:#CBD3CD;padding:48px 0 28px;}
     position:fixed;inset:0 0 0 30%;background:var(--stone);flex-direction:column;
     justify-content:flex-start;align-items:flex-start;padding:96px 32px 32px;gap:1.6rem;
     transform:translateX(100%);transition:transform .25s ease;box-shadow:-20px 0 40px rgba(0,0,0,0.08);
-    overflow-y:auto;
+    overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;
   }
+  nav.nav-links::-webkit-scrollbar{display:none;}
   .nav-toggle:checked ~ nav.nav-links{transform:translateX(0);}
   .hamburger{
     display:flex;align-items:center;justify-content:center;width:40px;height:40px;
