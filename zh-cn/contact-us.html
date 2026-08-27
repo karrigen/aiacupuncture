@@ -75,7 +75,7 @@
       </div>
 
       <div class="map-frame">
-        <iframe src="https://www.google.com/maps?q=40+Knightsbridge+Avenue+Valley+View+SA+5093&output=embed" loading="lazy" title="诊所位置地图"></iframe>
+        <button type="button" class="map-placeholder" onclick="loadMap(this)" data-src="https://www.google.com/maps?q=40+Knightsbridge+Avenue+Valley+View+SA+5093&output=embed" data-title="诊所位置地图"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>点击加载互动地图</span></button>
       </div>
 
       <div class="socials">
@@ -137,5 +137,14 @@
     <div class="copyright">© 2026 阿德莱德综合针灸。保留所有权利。</div>
   </div>
 </footer>
+<script>
+function loadMap(btn){
+  var iframe = document.createElement('iframe');
+  iframe.src = btn.getAttribute('data-src');
+  iframe.loading = 'lazy';
+  iframe.title = btn.getAttribute('data-title');
+  btn.replaceWith(iframe);
+}
+</script>
 </body>
 </html>
